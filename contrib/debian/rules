@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+#DEB_MAKE_CHECK_TARGET = test_bitcoin
+#build/bitcoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_bitcoin)
+
+DEB_INSTALL_EXAMPLES_909Coind += debian/examples/*
+DEB_INSTALL_MANPAGES_909Coind += debian/manpages/*
+
+%:
+	dh --with bash-completion $@
+
+override_dh_auto_build:
+	cd src; $(MAKE) -f makefile.unix 909Coind
+	$(MAKE)
+
+override_dh_auto_clean:
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f 909Coin-qt; fi
+	cd src; $(MAKE) -f makefile.unix clean
+
+override_dh_auto_configure:
+	qmake 909Coin-qt.pro USE_QRCODE=1
+
+override_dh_auto_test:
+	cd src; $(MAKE) -f makefile.unix test_909Coin
+	src/test_909Coin
+
+# Ensure wrapper is set executable
+binary-post-install/909Coind:
+	chmod +x $(cdbs_curdestdir)usr/bin/909Coind
+binary-post-install/909Coin-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/909Coin-qt

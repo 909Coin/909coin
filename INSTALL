@@ -1,0 +1,9 @@
+Building 909Coin
+
+See doc/readme-qt.rst for instructions on building 909Coin QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of 909Coin.
+
+See doc/build-*.txt for instructions on building 909Coind,
+the intended-for-services, no-graphical-interface, reference
+implementation of 909Coin.
