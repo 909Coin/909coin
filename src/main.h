@@ -30,7 +30,7 @@ class CNode;
 class CTxMemPool;
 
 
-static const int LAST_POW_BLOCK = 909909;
+static const int LAST_POW_BLOCK = 4600;
 
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
@@ -57,7 +57,7 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 
 static const int64_t COIN_YEAR_REWARD = 909 * CENT;  //909% ARP
 
-static const int64_t COIN_POW_REWARD = 0 * COIN;
+static const int64_t COIN_POW_REWARD = 909 * COIN;
 static const int64_t COIN_POW_PREMINE = 909000000000 * COIN; // 909,000,000,000 = 909 B
 
 static const int64_t POS_START_BLOCK = 1;
