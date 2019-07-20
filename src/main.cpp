@@ -1585,7 +1585,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     {
         int64_t nReward = GetProofOfWorkReward(nFees, prevHash);
         // Check coinbase reward
-        if (0 && vtx[0].GetValueOut() > nReward + vtx[0].GetBurnedValue())
+        if (0 && vtx[0].GetValueOut() > nReward )
             return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")",
                    vtx[0].GetValueOut(),
                    nReward));
